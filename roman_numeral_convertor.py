@@ -1,380 +1,326 @@
-to_roman_numerals = input ("if you would like to convert TO a roman numeral type Yes, if not type No:\n")
+to_roman_numerals = input(
+    "if you would like to convert TO a roman numeral type Yes, if not type No:\n"
+)
 
-Roman_Numerals = {'M': 1000, 'CM': 900, 'D': 500, 'CD': 400, 'C': 100, 'XC': 90, 'L': 50, 'XL': 40, 'X': 10, 'IX': 9, 'V': 5, 'IV': 4, 'I': 1}
+roman_numerals_lookup: dict = {
+    "M": 1000,
+    "CM": 900,
+    "D": 500,
+    "CD": 400,
+    "C": 100,
+    "XC": 90,
+    "L": 50,
+    "XL": 40,
+    "X": 10,
+    "IX": 9,
+    "V": 5,
+    "IV": 4,
+    "I": 1,
+}
 
-if to_roman_numerals == 'Yes':
-    Arabic =input ("Please enter the Arabic number which you want to conver to a Roman Numeral this must between 1 and 3,9,9,9.\n")
-    print ("The Arabic Number", Arabic ,"will be converted to a Roman Numeral.\n")
-    Arabic_length = len(Arabic) 
-    print (Arabic_length)
-    List = Arabic.split(",")
-    print (List) 
 
-    def Arabic_to_Roman():
-        Numeral= 0 
-        TH = 0
-        HU = 0
-        TE = 0 
-        UN = 0 
-        seven = 0 
-        five = 0 
-        three = 0 
-        one = 0
-        count = 0
-        Found = True 
-        Z = 0
-        
+def convert_arabic_to_roman(digit_list: list) -> str:
+    roman_numeral = 0
 
-        if Arabic_length == 7 :
+    if arabic_number_length == 7:
 
-   
-            if List [0] == "1":
-                Numeral = "M"
+        if digit_list[0] == "1":
+            roman_numeral = "M"
 
-            elif List [0] == "2":
-                Numeral = "MM"
+        elif digit_list[0] == "2":
+            roman_numeral = "MM"
 
-            elif List [0] == "3":
-                Numeral = "MMM"
-            
-            if List [1] == "1":
-                Numeral = Numeral + "C"
+        elif digit_list[0] == "3":
+            roman_numeral = "MMM"
 
-            elif List [1] == "2":
-                Numeral = Numeral + "CC"
+        if digit_list[1] == "1":
+            roman_numeral = roman_numeral + "C"
 
-            elif List [1] == "3":
-                Numeral = Numeral + "CCC"
+        elif digit_list[1] == "2":
+            roman_numeral = roman_numeral + "CC"
 
-            elif List [1] == "4":
-                Numeral = Numeral + "CD"
+        elif digit_list[1] == "3":
+            roman_numeral = roman_numeral + "CCC"
 
-            elif List [1] == "5":
-                Numeral = Numeral + "D"
+        elif digit_list[1] == "4":
+            roman_numeral = roman_numeral + "CD"
 
-            elif List [1] == "9":
-                Numeral = Numeral + "CM"
+        elif digit_list[1] == "5":
+            roman_numeral = roman_numeral + "D"
 
-            if List [2] == "1":
-                Numeral = Numeral + "X"
+        elif digit_list[1] == "9":
+            roman_numeral = roman_numeral + "CM"
 
-            elif List [2] == "2":
-                Numeral = Numeral + "XX"
+        if digit_list[2] == "1":
+            roman_numeral = roman_numeral + "X"
 
-            elif List [2] == "3":
-                Numeral = Numeral + "XXX"
+        elif digit_list[2] == "2":
+            roman_numeral = roman_numeral + "XX"
 
-            elif List [2] == "4":
-                Numeral = Numeral + "XL"
+        elif digit_list[2] == "3":
+            roman_numeral = roman_numeral + "XXX"
 
-            elif List [2] == "5":
-                Numeral = Numeral + "L"
+        elif digit_list[2] == "4":
+            roman_numeral = roman_numeral + "XL"
 
-            elif List [2] == "9":
-                Numeral = Numeral + "XC" 
+        elif digit_list[2] == "5":
+            roman_numeral = roman_numeral + "L"
 
-            if List [3] == "1":
-                Numeral = Numeral + "I"
+        elif digit_list[2] == "9":
+            roman_numeral = roman_numeral + "XC"
 
-            elif List [3] == "2":
-                Numeral = Numeral + "II"
+        if digit_list[3] == "1":
+            roman_numeral = roman_numeral + "I"
 
-            elif List [3] == "3":
-                Numeral = Numeral + "III"
+        elif digit_list[3] == "2":
+            roman_numeral = roman_numeral + "II"
 
-            elif List [3] == "4":
-                Numeral = Numeral + "IV"
+        elif digit_list[3] == "3":
+            roman_numeral = roman_numeral + "III"
 
-            elif List [3] == "5":
-                Numeral = Numeral + "V"                                                                                  
+        elif digit_list[3] == "4":
+            roman_numeral = roman_numeral + "IV"
 
-            print (Numeral)
+        elif digit_list[3] == "5":
+            roman_numeral = roman_numeral + "V"
 
-        elif Arabic_length == 5:
+        return roman_numeral
 
-            if List [0] == "1":
-                Numeral = "C"
+    elif arabic_number_length == 5:
 
-            elif List [0] == "2":
-                Numeral =  "CC"
+        if digit_list[0] == "1":
+            roman_numeral = "C"
 
-            elif List [0] == "3":
-                Numeral = "CCC"
+        elif digit_list[0] == "2":
+            roman_numeral = "CC"
 
-            elif List [0] == "4":
-                Numeral = "CD"
+        elif digit_list[0] == "3":
+            roman_numeral = "CCC"
 
-            elif List [0] == "5":
-                Numeral = "D"
+        elif digit_list[0] == "4":
+            roman_numeral = "CD"
 
-            elif List [0] == "9":
-                Numeral =  "CM"
+        elif digit_list[0] == "5":
+            roman_numeral = "D"
 
-            if List [1] == "1":
-                Numeral = Numeral + "X"
+        elif digit_list[0] == "9":
+            roman_numeral = "CM"
 
-            elif List [1] == "2":
-                Numeral = Numeral + "XX"
+        if digit_list[1] == "1":
+            roman_numeral = roman_numeral + "X"
 
-            elif List [1] == "3":
-                Numeral = Numeral + "XXX"
+        elif digit_list[1] == "2":
+            roman_numeral = roman_numeral + "XX"
 
-            elif List [1] == "4":
-                Numeral = Numeral + "XL"
+        elif digit_list[1] == "3":
+            roman_numeral = roman_numeral + "XXX"
 
-            elif List [1] == "5":
-                Numeral = Numeral + "L"
+        elif digit_list[1] == "4":
+            roman_numeral = roman_numeral + "XL"
 
-            elif List [1] == "9":
-                Numeral = Numeral + "XC" 
+        elif digit_list[1] == "5":
+            roman_numeral = roman_numeral + "L"
 
-            if List [2] == "1":
-                Numeral = Numeral + "I"
+        elif digit_list[1] == "9":
+            roman_numeral = roman_numeral + "XC"
 
-            elif List [2] == "2":
-                Numeral = Numeral + "II"
+        if digit_list[2] == "1":
+            roman_numeral = roman_numeral + "I"
 
-            elif List [2] == "3":
-                Numeral = Numeral + "III"
+        elif digit_list[2] == "2":
+            roman_numeral = roman_numeral + "II"
 
-            elif List [2] == "4":
-                Numeral = Numeral + "IV"
+        elif digit_list[2] == "3":
+            roman_numeral = roman_numeral + "III"
 
-            elif List [2] == "5":
-                Numeral = Numeral + "V"   
+        elif digit_list[2] == "4":
+            roman_numeral = roman_numeral + "IV"
 
+        elif digit_list[2] == "5":
+            roman_numeral = roman_numeral + "V"
 
-            print (Numeral)
+        return roman_numeral
 
-        elif Arabic_length == 3:
+    elif arabic_number_length == 3:
 
-            if List [0] == "1":
-                Numeral = "X"
+        if digit_list[0] == "1":
+            roman_numeral = "X"
 
-            elif List [0] == "2":
-                Numeral = "XX"
+        elif digit_list[0] == "2":
+            roman_numeral = "XX"
 
-            elif List [0] == "3":
-                Numeral =  "XXX"
+        elif digit_list[0] == "3":
+            roman_numeral = "XXX"
 
-            elif List [0] == "4":
-                Numeral = "XL"
+        elif digit_list[0] == "4":
+            roman_numeral = "XL"
 
-            elif List [0] == "5":
-                Numeral =  "L"
+        elif digit_list[0] == "5":
+            roman_numeral = "L"
 
-            elif List [0] == "9":
-                Numeral =  "XC" 
+        elif digit_list[0] == "9":
+            roman_numeral = "XC"
 
-            if List [1] == "1":
-                Numeral = Numeral + "I"
+        if digit_list[1] == "1":
+            roman_numeral = roman_numeral + "I"
 
-            elif List [1] == "2":
-                Numeral = Numeral + "II"
+        elif digit_list[1] == "2":
+            roman_numeral = roman_numeral + "II"
 
-            elif List [1] == "3":
-                Numeral = Numeral + "III"
+        elif digit_list[1] == "3":
+            roman_numeral = roman_numeral + "III"
 
-            elif List [1] == "4":
-                Numeral = Numeral + "IV"
+        elif digit_list[1] == "4":
+            roman_numeral = roman_numeral + "IV"
 
-            elif List [1] == "5":
-                Numeral = Numeral + "V"   
+        elif digit_list[1] == "5":
+            roman_numeral = roman_numeral + "V"
 
+        return roman_numeral
 
-            print (Numeral)
+    elif arabic_number_length == 1:
 
-        elif Arabic_length == 1:
+        if digit_list[0] == "1":
+            roman_numeral = "I"
 
-            if List [0] == "1":
-                Numeral ="I"
+        elif digit_list[0] == "2":
+            roman_numeral = "II"
 
-            elif List [0] == "2":
-                Numeral = "II"
+        elif digit_list[0] == "3":
+            roman_numeral = "III"
 
-            elif List [0] == "3":
-                Numeral = "III"
+        elif digit_list[0] == "4":
+            roman_numeral = "IV"
 
-            elif List [0] == "4":
-                Numeral =  "IV"
+        elif digit_list[0] == "5":
+            roman_numeral = "V"
+        return roman_numeral
 
-            elif List [0] == "5":
-                Numeral =  "V"   
+    else:
+        print("The number must have a minimum of 1 and a maximum of 4 valid digits")
+        return None
 
-            print (Numeral)
-            
 
-        else:
-            print ("The number must have a minimum of 1 and a maximum of 4 valid digits")
+def convert_roman_to_arabic(digit_list: list) -> int:
+    thousands: int = 0
+    hundreds: int = 0
+    tens: int = 0
+    units: int = 0
 
-if to_roman_numerals == 'No':
-    Roman = input ("Please enter the Roman Numeral that you want to convert to an Arabic number with a max of MMM, eg. M,M,C,D,I:\n")
-    print ("The Roman Numeral", Roman ,"will be converted to an Arabic Number")
-    Roman_Length = len(Roman) 
-    List = Roman.split(",")
-    print (List)
-    print ("This is the length", Roman_Length) # length includes spaces 
+    if "MMM" in digit_list[:2]:
+        thousands = 3
+        digit_list.remove("MMM")
 
+    elif "MM" in digit_list[:1]:
+        thousands = 2
+        digit_list.remove("MM")
 
+    elif "M" in digit_list[0]:
+        thousands = 1
+        digit_list.remove("M")
 
-    def roman_to_Arabic():
-        Number = 0 
-        Thousand = 0
-        Hundreds = 0
-        Tens = 0 
-        Units = 0 
-        count = 0
-        Z = 0 
+    if "CM" in digit_list:
+        hundreds = 9
+        digit_list.remove("CM")
 
+    elif "CD" in digit_list:
+        hundreds = 4
+        digit_list.remove("CD")
 
-        if "MMM" in List [:2] :
-            Thousand = 3
-            List.remove("MMM")
+    elif "D" in digit_list:
+        hundreds = 5
+        digit_list.remove("D")
 
-            
-            count = 0
-            Z = 0
+    if "CCC" in digit_list:
+        hundreds = 3
+        digit_list.remove("CCC")
 
-        elif "MM" in List [:1] :
-            Thousand = 2
-            List.remove("MM")
+    elif "CC" in digit_list:
 
-            count = 0
-            Z = 0 
+        hundreds = 2
+        digit_list.remove("CC")
 
-        elif "M" in List [0] :
-            Thousand = 1 
-            List.remove("M")
+    elif "C" in digit_list:
+        hundreds = 1
+        list.remove("C")
 
-            count = 0
-            Z = 0
+    if "XC" in digit_list:
+        tens = 9
+        digit_list.remove("XC")
 
-        if "CM" in List:
-            Hundreds = 9
-            List.remove("CM")
+    elif "XL" in digit_list:
+        tens = 4
+        digit_list.remove("XL")
 
-            count = 0
-            Z = 0            
+    elif "L" in digit_list:
+        tens = 5
+        digit_list.remove("L")
 
-        elif "CD" in List:
-            Hundreds= 4
-            List.remove("CD")
+    if "XXX" in digit_list:
+        tens = 3
+        digit_list.remove("XXX")
 
-            count = 0
-            Z = 0            
+    elif "XX" in digit_list:
+        tens = 2
+        digit_list.remove("XX")
 
-        elif "D" in List:
-            Hundreds= 5
-            List.remove("D")
+    elif "X" in digit_list:
+        tens = 1
+        digit_list.remove("X")
 
-            count = 0
-            Z = 0  
+    if "IX" in digit_list:
+        units = 9
+        digit_list.remove("IX")
 
-        if "CCC" in List:
-            Hundreds = 3
-            List.remove("CCC")
+    elif "IV" in digit_list:
+        units = 4
+        digit_list.remove("IV")
 
-            count = 0
-            Z = 0                       
+    elif "V" in digit_list:
+        units = 5
+        digit_list.remove("V")
 
-        elif "CC" in List:
+    if "III" in digit_list:
+        units = 3
+        digit_list.remove("III")
 
-            Hundreds = 2
-            List.remove("CC")
+    elif "II" in digit_list:
+        units = 2
+        digit_list.remove("II")
 
-            count = 0
-            Z = 0 
+    elif "I" in digit_list:
+        units = 1
+        digit_list.remove("I")
 
+    return (1000 * thousands) + (100 * hundreds) + (10 * tens) + (1 * units)
 
-        elif "C" in List:
-            Hundreds = 1
-            list.remove("C")
 
-        if "XC" in List:
-            Tens= 9
-            List.remove("XC")
+if to_roman_numerals == "Yes":
+    arabic_input = input(
+        "Please enter the Arabic number which you want to conver to a Roman Numeral this must between 1 and 3,9,9,9.\n"
+    )
+    print("The Arabic Number", arabic_input, "will be converted to a Roman Numeral.\n")
+    arabic_number_length: int = len(arabic_input)
+    print(arabic_number_length)
 
-            count = 0
-            Z = 0 
+    digit_list: list = arabic_input.split(",")
+    print(digit_list)
 
-        elif "XL" in List:
-            Tens = 4
-            List.remove("XL")
+    roman_numeral = convert_arabic_to_roman(digit_list)
+    print(roman_numeral)
 
-            count = 0
-            Z = 0 
+if to_roman_numerals == "No":
+    roman_input = input(
+        "Please enter the Roman Numeral that you want to convert to an Arabic number with a max of MMM, eg. M,M,C,D,I:\n"
+    )
+    print("The Roman Numeral", roman_input, "will be converted to an Arabic Number")
+    roman_numeral_length = len(roman_input)
+    digit_list = roman_input.split(",")
+    print(digit_list)
+    print("This is the length", roman_numeral_length)  # length includes spaces
 
-        elif "L" in List:
-            Tens = 5
-            List.remove("L")
-
-            count = 0
-            Z = 0 
-
-        if "XXX" in List:
-            Tens = 3
-            List.remove("XXX")
-
-            count = 0
-            Z = 0             
-
-        elif "XX" in List:
-            Tens = 2
-            List.remove("XX")
-
-            count = 0
-            Z = 0                   
-
-        elif "X" in List:
-            Tens = 1
-            List.remove("X")
-
-            count = 0
-            Z = 0                 
-
-        if "IX" in List:
-            Units = 9
-            List.remove("IX")
-
-            count = 0
-            Z = 0             
-
-        elif "IV" in List:
-            Units = 4
-            List.remove("IV")
-
-            count = 0
-            Z = 0   
-
-        elif "V" in List:
-            Units = 5
-            List.remove("V")   
-
-            count = 0
-            Z = 0 
-
-        if "III" in List:
-            Units = 3
-            List.remove("III")
-
-            count = 0
-            Z = 0             
-
-        elif "II" in List:
-            Units = 2
-            List.remove("II")
-
-            count = 0
-            Z = 0                   
-
-        elif "I" in List:
-            Units = 1
-            List.remove("I")
-
-
-        print ("the number is: ", Thousand,Hundreds,Tens,Units)                                 
-
-    roman_to_Arabic()
+    arabic_input: int = convert_roman_to_arabic(digit_list)
+    print("the number is: ", arabic_input)
 
 else:
-    print ("Type yes or no")
+    print("Type yes or no")
