@@ -176,7 +176,7 @@ def convert_arabic_to_roman(digit_list: list) -> str:
         elif digit_list[1] == "5":
             roman_numeral = roman_numeral + "V"
 
-        print(roman_numeral)
+        return roman_numeral
 
     elif arabic_number_length == 1:
 
@@ -201,11 +201,11 @@ def convert_arabic_to_roman(digit_list: list) -> str:
         return None
 
 
-def convert_roman_to_arabic(digit_list:list) -> int:
-    thousands = 0
-    hundreds = 0
-    tens = 0
-    units = 0
+def convert_roman_to_arabic(digit_list: list) -> int:
+    thousands: int = 0
+    hundreds: int = 0
+    tens: int = 0
+    units: int = 0
 
     if "MMM" in digit_list[:2]:
         thousands = 3
