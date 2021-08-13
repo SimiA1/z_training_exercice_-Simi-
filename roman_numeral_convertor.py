@@ -21,6 +21,7 @@ def convert_arabic_to_roman(arabic_input):
     arabic_number_length: int = len(arabic_input)
 
     digit_list: list = arabic_input.split(",")
+    roman_numeral = ''
 
     if arabic_number_length == 7:
 
@@ -229,7 +230,6 @@ def convert_roman_to_arabic(digit_list):
 
     elif "C" in digit_list:
         hundreds = 100
-        digit_list.remove("C")
 
     if "XC" in digit_list:
         tens = 90

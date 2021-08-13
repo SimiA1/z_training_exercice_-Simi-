@@ -36,26 +36,26 @@ class RomanNumeralConvertorTest(unittest.TestCase):
 
 class NumeralRomanConvertorTest(unittest.TestCase):
     def test_simple_conversion(self):
-        key_value = roman_numeral_convertor.convert_arabic_to_roman("I")
+        key_value = roman_numeral_convertor.convert_roman_to_arabic("I")
         expected_value = 1
         self.assertEqual(key_value, expected_value)
 
     def test_complicated_conversion(self):
-        key_value = roman_numeral_convertor.convert_arabic_to_roman("C,XX,III")
+        key_value = roman_numeral_convertor.convert_roman_to_arabic("C,XX,III")
         expected_value = 123
         self.assertEqual(key_value, expected_value)
 
     def test_simple_subtraction(self):
-        key_value = roman_numeral_convertor.convert_arabic_to_roman("IV")
+        key_value = roman_numeral_convertor.convert_roman_to_arabic("IV")
         expected_value = 4
         self.assertEqual(key_value, expected_value)
 
     def test_complex_subtraction(self):
-        key_value = roman_numeral_convertor.convert_arabic_to_roman("CM")
+        key_value = roman_numeral_convertor.convert_roman_to_arabic("CM")
         expected_value = 900
         self.assertEqual(key_value, expected_value)
 
     def test_long_converison(self):
-        key_value = roman_numeral_convertor.convert_arabic_to_roman("MMM,CM,XC,IX")
+        key_value = roman_numeral_convertor.convert_roman_to_arabic("MMM,CM,XC,IX")
         expected_value = 3999
         self.assertEqual(key_value, expected_value)
