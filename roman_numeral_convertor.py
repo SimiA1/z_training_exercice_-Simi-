@@ -18,6 +18,7 @@ roman_numerals_lookup: dict = {
 
 
 def convert_arabic_to_roman(arabic_input):
+    arabic_input = str(arabic_input)
     arabic_number_length: int = len(arabic_input)
 
     digit_list: list = arabic_input.split(",")
@@ -201,7 +202,6 @@ def convert_roman_to_arabic(digit_list):
     hundreds: int = 0
     tens: int = 0
     units: int = 0
-    result: int = 0
 
     if "MMM" in digit_list[:2]:
         thousands = 3000
